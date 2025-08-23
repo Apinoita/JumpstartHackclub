@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=4 uid="uid://brxpfpvvcrbtm"]
+
+[ext_resource type="Script" uid="uid://bq8pwsn1cqg3g" path="res://player.gd" id="1_112p8"]
+[ext_resource type="Texture2D" uid="uid://c7og03qxahtmg" path="res://icon.svg" id="1_j2q8x"]
+[ext_resource type="Texture2D" uid="uid://d0malq25q7b1s" path="res://pixil-frame-0.png" id="2_112p8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2u21"]
+size = Vector2(130, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bss38"]
+texture = ExtResource("2_112p8")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_tda05"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_bss38")
+
+[node name="Node" type="Node"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_112p8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(1, 2)
+texture = ExtResource("1_j2q8x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_e2u21")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAD9/wQAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAALAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAEAAAAAAAAAAAAPAAEAAAAAAAAAAAAQAAEAAAAAAAAAAAARAAEAAAAAAAAAAAASAAEAAAAAAAAAAAATAAEAAAAAAAAAAAAUAAEAAAAAAAAAAAAVAAEAAAAAAAAAAAAVAAAAAAAAAAAAAAAVAP//AAAAAAAAAAAVAP7/AAAAAAAAAAAVAP3/AAAAAAAAAAAVAPz/AAAAAAAAAAAVAPv/AAAAAAAAAAAVAPr/AAAAAAAAAAAVAPn/AAAAAAAAAAAVAPj/AAAAAAAAAAAUAPj/AAAAAAAAAAAUAPf/AAAAAAAAAAATAPf/AAAAAAAAAAASAPf/AAAAAAAAAAARAPf/AAAAAAAAAAAQAPf/AAAAAAAAAAAPAPf/AAAAAAAAAAAOAPf/AAAAAAAAAAANAPf/AAAAAAAAAAAMAPf/AAAAAAAAAAALAPf/AAAAAAAAAAAKAPf/AAAAAAAAAAAJAPf/AAAAAAAAAAAIAPf/AAAAAAAAAAAHAPf/AAAAAAAAAAAGAPf/AAAAAAAAAAAFAPf/AAAAAAAAAAAEAPf/AAAAAAAAAAADAPf/AAAAAAAAAAACAPf/AAAAAAAAAAABAPf/AAAAAAAAAAAAAPf/AAAAAAAAAAD///f/AAAAAAAAAAD+//f/AAAAAAAAAAD9//f/AAAAAAAAAAD8//f/AAAAAAAAAAD7//f/AAAAAAAAAAD6//f/AAAAAAAAAAD5//f/AAAAAAAAAAD4//f/AAAAAAAAAAD3//f/AAAAAAAAAAD2/wUAAAAAAAAAAAD2/wYAAAAAAAAAAAD2/wcAAAAAAAAAAAD3/wcAAAAAAAAAAAD4/wcAAAAAAAAAAAD5/wcAAAAAAAAAAAD6/wcAAAAAAAAAAAD7/wcAAAAAAAAAAAD8/wcAAAAAAAAAAAD8/wYAAAAAAAAAAAD8/wUAAAAAAAAAAAD8/wQAAAAAAAAAAAD2/wQAAAAAAAAAAAD2/wMAAAAAAAAAAAD2/wIAAAAAAAAAAAD2/wEAAAAAAAAAAAD2//3/AAAAAAAAAAD2//z/AAAAAAAAAAD2//v/AAAAAAAAAAD2//r/AAAAAAAAAAD2//n/AAAAAAAAAAD2//j/AAAAAAAAAAD2//f/AAAAAAAAAAD2//7/AAAAAAAAAAD2////AAAAAAAAAAD2/wAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_tda05")
