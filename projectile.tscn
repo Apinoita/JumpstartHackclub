@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://beqqrk6nsbdvl" path="res://projectile.gd" id="1_qxf0c"]
 [ext_resource type="Texture2D" uid="uid://c7og03qxahtmg" path="res://icon.svg" id="2_dgwo2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxmqc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxf0c"]
 size = Vector2(32, 31)
 
-[node name="Projectile" type="CharacterBody2D"]
+[node name="Projectile" type="RigidBody2D"]
 script = ExtResource("1_qxf0c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_sxmqc")
+shape = SubResource("RectangleShape2D_qxf0c")
 one_way_collision_margin = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
