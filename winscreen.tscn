@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpnu0qa3h5et7"]
+
+[ext_resource type="Script" uid="uid://dn0qhp870dcj4" path="res://winscreen.gd" id="1_y55kr"]
+
+[node name="winscreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y55kr")
+
+[node name="returntostart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 602.0
+offset_top = 368.0
+offset_right = 724.0
+offset_bottom = 399.0
+text = "Return to start"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 531.0
+offset_top = 128.0
+offset_right = 761.0
+offset_bottom = 168.0
+text = "You win"
+
+[node name="points" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 159.0
+offset_right = 780.0
+offset_bottom = 199.0
+text = "You win"
+
+[connection signal="button_down" from="returntostart" to="." method="_on_returntostart_button_down"]

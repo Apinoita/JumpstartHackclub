@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
 
-const SPEED = 400.0
-const JUMP_VELOCITY = -900.0
-var hitboxsize = 125
+const SPEED = 300.0
+const JUMP_VELOCITY = -650.0
+var hitboxsize = 105
+var shooted = 0
+var maxshoot = 6*2
+
 @onready var main = get_tree().get_root().get_node("Node")
 @onready var projectile = load("res://projectile.tscn")
 
@@ -24,20 +27,30 @@ func shoot(mouseloc) -> void:
 		instance.spawnpos = Vector2(global_position.x+cos(dir)*hitboxsize, global_position.y-sin(dir)*hitboxsize)
 		instance.spawndir = dir
 		main.add_child.call_deferred(instance)
+	shooted += 1
+	print(shooted)
 
 func _input(event):
 	# Mouse in viewport coordinates.
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and maxshoot >= shooted:
 		shoot(event.position)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
+	if global_position.y >= 325:
+		Global.getandclearpoints()
+		get_tree().change_scene_to_file("res://node.tscn")
+		
+	if global_position.x < -3100:
+		get_tree().change_scene_to_file("res://winscreen.tscn")
+		
 		
 	
 		
@@ -50,5 +63,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	
 
 	move_and_slide()

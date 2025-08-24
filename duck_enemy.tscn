@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2tgikvvbsn6w"]
+
+[ext_resource type="Script" uid="uid://snbh1ibqcpxl" path="res://duck_enemy.gd" id="1_40vea"]
+[ext_resource type="Texture2D" uid="uid://b05uy3eo24h2m" path="res://pixil-frame-1.png" id="1_u8gtg"]
+
+[node name="DuckEnemy" type="RigidBody2D"]
+script = ExtResource("1_40vea")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(3, 3)
+texture = ExtResource("1_u8gtg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(13.5695, -3.09107)
+scale = Vector2(4.171, 3)
+polygon = PackedVector2Array(1.30197, 11.3637, 5.85723, 3.03036, 5.61748, -6.96964, -1.33529, -11.6363, -14.0421, 5.36369, -7.0893, 11.697)

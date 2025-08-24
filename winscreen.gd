@@ -1,0 +1,17 @@
+extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	var text = get_tree().get_root().get_node("winscreen").get_child(2)
+	text.clear()
+	text.append_text("points:"+ str(Global.getandclearpoints()))
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_returntostart_button_down() -> void:
+	get_tree().change_scene_to_file("res://menu.tscn")

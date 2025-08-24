@@ -11,13 +11,22 @@ config_version=5
 [application]
 
 config/name="HackclubJumpstart"
-run/main_scene="uid://brxpfpvvcrbtm"
+run/main_scene="uid://046imyp8qtkf"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://global.gd"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[global_group]
+
+weapon=""
+win=""
 
 [input]
 
