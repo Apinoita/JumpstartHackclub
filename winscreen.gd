@@ -5,7 +5,7 @@ extends Control
 func _ready() -> void:
 	var text = get_tree().get_root().get_node("winscreen").get_child(2)
 	text.clear()
-	text.append_text("points:"+ str(Global.getandclearpoints()))
+	text.append_text("[font_size=50]Points:"+ str(Global.getandclearpoints()))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		Global.getandclearpoints()
 		get_tree().change_scene_to_file("res://node.tscn")
 		
-	if global_position.x < -3100:
+	if global_position.x < -3200:
 		get_tree().change_scene_to_file("res://winscreen.tscn")
 		
 		
